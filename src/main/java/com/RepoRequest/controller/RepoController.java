@@ -1,6 +1,5 @@
-package com.RepoRequest.service.controller;
+package com.RepoRequest.controller;
 
-import com.RepoRequest.model.RepoDto;
 import com.RepoRequest.service.RepoService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +11,10 @@ public class RepoController {
 
     public  final RepoService repoService;
 
+
+    // mapping for a specific URL
     @GetMapping("/getUser")
-    public RepoDto getUser(){
+    public String getUser(){
         return repoService.getUser();
     }
 }

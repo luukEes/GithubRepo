@@ -1,2 +1,9 @@
-package com.RepoRequest.client.dataDto;public class UserDtoName {
+package com.RepoRequest.client.dataDto;
+
+import lombok.Getter;
+
+@Getter
+public class UserDtoName {
+    private String name;
+    private int id;
 }
