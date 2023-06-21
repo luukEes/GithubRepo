@@ -1,24 +1,24 @@
 package com.RepoRequest.client;
-
+import com.RepoRequest.model.RepoDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
 
 @Component
 public class RepoClient {
 
-    public static final String First_half_URI = "https://api.github.com/users/";
-    public static final String Sec_half_URI = "/repos";
-    private RestTemplate restTemplate = new RestTemplate();
+    private static final RestTemplate restTemplate = new RestTemplate();
+    public static final String Url_For_Specified_User = "https://api.github.com/users/{user}/repos";
+    public static final String API_Key = "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";
+    RepoDto[] repoDtosBody = new RepoDto[0];
 
-    // Sting.class its type for the return
-    // uriVariables its provided by restTemplate we can use to adding next parameter
-    public String getUserRepo(String user) {
-        return restTemplate.getForObject(First_half_URI + "{username}" + Sec_half_URI,
-                String.class,user);
+    // By uriVariables provided by restTemplate we can use to adding next parameter
+    public RepoDto[] getUserRepo(String user) {
+        ResponseEntity<RepoDto[]> response =
+                restTemplate.getForEntity(Url_For_Specified_User,
+                        RepoDto[].class, user);
+        repoDtosBody = response.getBody();
+        return repoDtosBody;
     }
-
-   // private String callMethod(String url, Object...objects ) {
-     //   return restTemplate.getForObject(First_half_URI + "{username}" + Sec_half_URI,
-          //      String.class,objects);
-    //}
 }
