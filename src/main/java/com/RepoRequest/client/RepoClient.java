@@ -10,7 +10,6 @@ public class RepoClient {
 
     private static final RestTemplate restTemplate = new RestTemplate();
     public static final String Url_For_Specified_User = "https://api.github.com/users/{user}/repos";
-    public static final String API_Key = "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";
     RepoDto[] repoDtosBody = new RepoDto[0];
 
     // By uriVariables provided by restTemplate we can use to adding next parameter
