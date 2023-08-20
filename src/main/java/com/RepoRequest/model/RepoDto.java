@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+
+/*
+ creating new fields here -> getting more data in json
+ */
 public class RepoDto {
     private String name;
     private String full_name;
