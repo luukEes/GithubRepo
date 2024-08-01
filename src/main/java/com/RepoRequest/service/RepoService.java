@@ -14,7 +14,7 @@ public class RepoService {
 
      private final RepoClient repoClient= new RepoClient();
      // calling method getUserRepo(String user) we need to provide a parameter "user". Method return his repository
-     public RepoDto[] getUser(){
-    return repoClient.getUserRepo("luukees");
-    }
+     public RepoDto[] getUser(String username) {
+         return repoClient.getUserRepo(username);
+     }
 }

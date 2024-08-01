@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -21,7 +22,7 @@ public class RepoController {
     // mapping for a specific URL
     // UserNotFound exception is a claas responsible for catching null in username ( username not found in DB)
     @GetMapping("/getUser")
-    public RepoDto[] getUser() throws UserNotFound {
-        return repoService.getUser();
+    public RepoDto[] getUser(@RequestParam String username) throws UserNotFound {
+        return repoService.getUser(username);
     }
 }
