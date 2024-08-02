@@ -29,6 +29,8 @@ public class RepoController {
         return repoService.getUser(username);
     }
     // Exception handler
+    // Using hasMap to send messages into Postman/API testing soft. We can fully control the type of information sent to the user.
+    // here handler for 404 http  
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleUserNotFoundException(UserNotFoundException ex) {
         Map<String, Object> errorResponse = new HashMap<>();
