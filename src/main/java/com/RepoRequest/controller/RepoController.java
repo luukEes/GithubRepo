@@ -34,9 +34,8 @@ public class RepoController {
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleUserNotFoundException(UserNotFoundException ex) {
         Map<String, Object> errorResponse = new HashMap<>();
-        errorResponse.put("message", ex.getMessage());
-        errorResponse.put("documentation_url", "https://docs.github.com/rest");
         errorResponse.put("status", HttpStatus.NOT_FOUND.value());
+        errorResponse.put("message", ex.getMessage());
 
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
