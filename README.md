@@ -7,19 +7,21 @@ Application consists of several components, including a client for making HTTP r
 Class is responsible for interacting with the GitHub API using `RestTemplate`. It contains a method `getUserRepo(String user)` that takes a GitHub username as a parameter and returns an array of `RepoDto` objects representing the user's repositories.
 
 # RepoController
-Class handles HTTP requests and maps them to the appropriate service methods. It also includes an exception handler to provide error responses. The endpoint `/getUser` retrieves the repositories of a specified GitHub user by calling the service layer.
+Class handles HTTP requests and maps them to the appropriate service methods. It also includes an exception handler to provide error responses. Its also cheking content type -> Headers in http request.
+The endpoint `/getUser` retrieves the repositories of a specified GitHub user by calling the service layer.
 
 # UserNotFoundException
-Custom exception that is thrown when a user is not found. This exception is handled in the `RepoController` to return a 404 status with a custom error message.
+Exception is thrown when a user is not found. This exception is handled in the `RepoController` to return a 404 status with a custom error message.
 
 # RepoDto
  This Class is a data transfer object representing the structure of a GitHub repository's JSON response. It includes fields such as `name`, `full_name`, `owner`, `fork`, and `pushed_at`.
 
 # RepoDtoOwner
-Class represents the owner of a GitHub repository. It includes a single field `login` which represents the GitHub username of the owner.
+Class represents the owner  login name of a GitHub repository. It includes a single field `login'.
 
 # RepoService
-The `RepoService` class contains the business logic for retrieving repositories and handling errors. It calls the `RepoClient` to get the repositories and checks if the response is null or empty, throwing a `UserNotFoundException` if the user is not found.
+The `RepoService` class contains the business logic for retrieving repositories and handling errors.
+It calls the `RepoClient` to get the repositories and checks if the response is null or empty, throwing a `UserNotFoundException` if the user is not found.
 
 # Main
 The `Main` class is the entry point of the Spring Boot application. 
