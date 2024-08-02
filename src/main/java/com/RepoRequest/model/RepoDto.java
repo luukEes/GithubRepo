@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-/*
- creating new fields here -> getting more data in json
- */
+
+ // creating new fields here -> getting more data in json
+ // Data transfer object class to specify what type we wanne get
+
 public class RepoDto {
     private String name;
     private String full_name;

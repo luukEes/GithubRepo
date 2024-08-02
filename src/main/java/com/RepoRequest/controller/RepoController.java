@@ -9,8 +9,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,12 +21,11 @@ public class RepoController  {
     private final RepoService repoService;
 
     @GetMapping("/getUser")
-    public ResponseEntity<?> getUser(
-            @RequestParam String username,
-            @RequestHeader(value = HttpHeaders.CONTENT_TYPE, defaultValue = "application/json") String contentTypeHeader) {
+    public ResponseEntity<?> getUser(@RequestParam String username,
+                                     @RequestHeader(value = HttpHeaders.CONTENT_TYPE, defaultValue = "application/json") String contentTypeHeader) {
 
-        
-        // Check if Content-Type header is application/json
+
+        // try catch block for checking headers
         if (!"application/json".equals(contentTypeHeader)) {
             Map<String, Object> errorResponse = new HashMap<>();
             errorResponse.put("status", HttpStatus.NOT_ACCEPTABLE.value());
@@ -51,7 +48,7 @@ public class RepoController  {
         }
     }
 
-    // Exception handler
+    // Exception returning 404 code if guy does not exist
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleUserNotFoundException(UserNotFoundException ex) {
         Map<String, Object> errorResponse = new HashMap<>();
