@@ -1,7 +1,8 @@
 ##GithubRepo
 
 # RepoRequest
-Spring Boot application that retrieves a user's public repositories from GitHub using the GitHub REST API. The application consists of several components, including a client for making HTTP requests, a service layer for handling business logic, and a controller for exposing REST endpoints.
+Spring Boot application that retrieves a user's public repositories from GitHub using the GitHub REST API. 
+Application consists of several components, including a client for making HTTP requests, a service layer for handling business logic, and a controller for exposing REST endpoints.
 ### RepoClient
 Class is responsible for interacting with the GitHub API using `RestTemplate`. It contains a method `getUserRepo(String user)` that takes a GitHub username as a parameter and returns an array of `RepoDto` objects representing the user's repositories.
 
