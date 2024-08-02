@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 
+// using RestTemplate to exchange data with API
 @Component
 public class RepoClient {
 
